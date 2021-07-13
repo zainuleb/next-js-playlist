@@ -28,7 +28,7 @@ export default function FilteredListings() {
 					<p>Invalid Filter</p>
 				</ErrorAlert>
 				<div className="center">
-					<Button link="/listings">Show All Properties</Button>
+					<Button link="listings">Show All Properties</Button>
 				</div>
 			</>
 		);

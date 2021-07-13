@@ -1,10 +1,7 @@
 import { useRouter } from "next/router";
-
 import { getFilteredListings } from "../../dummy-data";
 import PropertyList from "../../components/listings/property-list";
 import ResultsTitle from "../../components/listings/results-title";
-import Button from "../../components/ui/button";
-import ErrorAlert from "../../components/ui/error-alert";
 
 export default function FilteredListings() {
 	const router = useRouter();
@@ -22,16 +19,7 @@ export default function FilteredListings() {
 	const numMonth = +filteredMonth;
 
 	if (isNaN(numYear) || isNaN(numMonth)) {
-		return (
-			<>
-				<ErrorAlert>
-					<p>Invalid Filter</p>
-				</ErrorAlert>
-				<div className="center">
-					<Button link="/listings">Show All Properties</Button>
-				</div>
-			</>
-		);
+		return <p>Invalid Filter Bitch</p>;
 	}
 
 	const filteredProperties = getFilteredListings({
@@ -44,9 +32,6 @@ export default function FilteredListings() {
 		return (
 			<>
 				<p>No Properties Found for the selected filter</p>
-				<div className="center">
-					<Button link="listings">Show All Properties</Button>
-				</div>
 			</>
 		);
 	}

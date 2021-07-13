@@ -1,0 +1,12 @@
+.alert {
+	margin: 1rem auto;
+	padding: 1rem 2rem;
+	width: 90%;
+	max-width: 20rem;
+	background-color: #1f101a;
+	color: #d31919;
+	font-weight: bold;
+	font-size: 1.5rem;
+	text-align: center;
+	border-radius: 6px;
+}

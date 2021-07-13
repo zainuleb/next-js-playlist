@@ -24,11 +24,9 @@ export default function FilteredListings() {
 	if (isNaN(numYear) || isNaN(numMonth)) {
 		return (
 			<>
-				<ErrorAlert>
-					<p>Invalid Filter</p>
-				</ErrorAlert>
+				<p>Invalid Filter Bitch</p>
 				<div className="center">
-					<Button link="/listings">Show All Properties</Button>
+					<Button link="listings">Show All Properties</Button>
 				</div>
 			</>
 		);

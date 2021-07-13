@@ -11,7 +11,7 @@ function ResultsTitle(props) {
 
 	return (
 		<section className={classes.title}>
-			<h1>Properties listed in {humanReadableDate}</h1>
+			<h1>Properties in {humanReadableDate}</h1>
 			<Button link="/listings">Show all Properties</Button>
 		</section>
 	);
