@@ -1,0 +1,7 @@
+{
+	"properties": [
+		{ "id": "p1", "title": "Property 1", "description": "This is Property 1" },
+		{ "id": "p2", "title": "Property 2", "description": "This is Property 2" },
+		{ "id": "p3", "title": "Property 3", "description": "This is Property 3" }
+	]
+}
