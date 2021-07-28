@@ -100,6 +100,9 @@ export const getStaticProps = async () => {
 					note: data[key].note,
 				});
 			}
+			setLeads(transformedLeads);
+			setIsLoading(false);
+		});
 };
 
 export default Leads;

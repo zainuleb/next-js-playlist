@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import useSWR from "swr";
 
 const Leads = () => {
-	const [leads, setLeads] = useState();
-	/*	const [isLoading, setIsLoading] = useState(false);
-	 */
+	/* 	const [leads, setLeads] = useState();
+	const [isLoading, setIsLoading] = useState(false);
+ */
 	const { data, error } = useSWR(
 		"https://restate-c63c7-default-rtdb.asia-southeast1.firebasedatabase.app/leads.json"
 	);
@@ -15,7 +15,6 @@ const Leads = () => {
 
 	useEffect(() => {
 		if (data) {
-			const transformedLeads = [];
 			for (const key in data) {
 				transformedLeads.push({
 					id: key,
@@ -24,11 +23,8 @@ const Leads = () => {
 					status: data[key].status,
 					note: data[key].note,
 				});
-			}
+	}},[data])
 
-			setLeads(transformedLeads);
-		}
-	}, [data]);
 
 	/* 	useEffect(() => {
 		setIsLoading(true);
@@ -53,16 +49,12 @@ const Leads = () => {
 			});
 	}, []);
  */
-	if (error) {
-		return <p>Failed to Load Data</p>;
-	}
-
-	if (!data || !leads) {
-		return <p>No Data Yet!</p>;
+	if (isLoading) {
+		return <p>Loading...</p>;
 	}
 
 	if (!leads) {
-		return <p>Loading...</p>;
+		return <p>No Data Yet!</p>;
 	}
 
 	return (
@@ -81,25 +73,6 @@ const Leads = () => {
 			))}
 		</ul>
 	);
-};
-
-export const getStaticProps = async () => {
-	fetch(
-		"https://restate-c63c7-default-rtdb.asia-southeast1.firebasedatabase.app/leads.json"
-	)
-		.then((response) => response.json())
-		.then((data) => {
-			const transformedLeads = [];
-
-			for (const key in data) {
-				transformedLeads.push({
-					id: key,
-					username: data[key].username,
-					pid: data[key].pid,
-					status: data[key].status,
-					note: data[key].note,
-				});
-			}
 };
 
 export default Leads;
